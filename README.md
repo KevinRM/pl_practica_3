@@ -5,8 +5,8 @@
 - En la rama gh-pages encontrará una versión sin AJAX
 - En la rama master encontrará una versión utilizando AJAX.
 
-# Travis --> [Añadir enlace]()
-[![Build Status](.svg)]()
+# Travis 
+[![Build Status](https://travis-ci.org/KevinRM/pl_practica_3.svg)](https://travis-ci.org/KevinRM/pl_practica_3)
 
 # [Heroku] (https://js-lexical-analyzer.herokuapp.com/)
 
