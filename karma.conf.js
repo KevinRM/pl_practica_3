@@ -26,7 +26,7 @@ module.exports = function(config) {
         'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js',
         'public/tests/karmatest.html',
-        'https://analizador-csv.herokuapp.com/',
+        'http://localhost:5000/tests/karmatest.html',
         '*.js',
         'public/tests/*.js'
     ],
@@ -41,7 +41,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'tests/karmatest.html': ['html2js']
+        'http://localhost:5000/tests/karmatest.html': ['html2js']
     },
 
     // test results reporter to use

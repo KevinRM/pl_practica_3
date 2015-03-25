@@ -19,12 +19,18 @@ app.get('/', function (request, response) {
 });
 
 app.get('/parse', function (request, response) {
-
+    try {
+        var tok = tokens.tokenizar(request.query.input);
+        response.send({ "answer": tok });
+    }
+    catch (err) {
+        console.log(err);
+        response.send({ "answer": err });
+    }
     console.log(request.query);
-    console.log(tokens.tokenizar(request.query.input));
-    response.send({ "answer": (tokens.tokenizar(request.query.input)) });
+   
+    
 });
-
 
 app.listen(app.get('port'), function () {
     console.log("Node app is running at localhost:" + app.get('port'));
