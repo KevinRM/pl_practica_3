@@ -1,6 +1,6 @@
 # Práctica 3: [Analizador Léxico para Un Subconjunto de JavaScript](http://kevinrm.github.io/pl_practica_3/)
 
-- Introduzca un fichero y pulse el botón para generar una tabla con los valores de la cadena csv. 
+- Analizador de cadenas csv. Introduzca una cadena en formato csv y pulse el botón para generar una tabla con los valores de la cadena csv. 
 - Con el botón test se irá a los test del analizador.
 - En la rama gh-pages encontrará una versión sin AJAX
 - En la rama master encontrará una versión utilizando AJAX.
