@@ -1,1 +1,8 @@
-hola
+ var make = function (type, value) {
+        return {
+            type: type,
+            value: value,
+            from: from,
+            to: i
+        };
+    };
