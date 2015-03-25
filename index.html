@@ -45,7 +45,11 @@
             Arrastre el archivo a analizar a la zona "Drop files" o seleccione el archivo a través del botón de la derecha. Para ver códigos de ejemplo, pulse en los botones de abajo.
           </fieldset>
         </div>
-        <div id="drop_zone"><b><i>------ Drop files here ------</i></b></div>
+        <div id="drop_zone">
+          <b>
+            <i>------ Drop files here ------</i>
+          </b>
+        </div>
         <output id="list"></output>
 
         <!--Dropzone-->
@@ -88,7 +92,7 @@
 
         <!--Boton para elegir archivo y subirlo*/-->
         <p> <input type="file" id="files"/> </p>
-        <textarea id="myText" autofocus cols="40" rows="10" ></textarea>
+        <textarea readonly id="myText" autofocus cols="40" rows="10" ></textarea>
         <script type="text/javascript">
           document.getElementById('files').addEventListener('change', CopyMe, false);
           function CopyMe(evt) {
@@ -104,26 +108,44 @@
           }
         </script>
         <!--==================================-->
+        <!--Funcion y boton para limpiar la textarea-->
+        <button id="B_clear" type="button" onclick="re()" value="Clear"><b></b>reset</button>
+        <script type="text/javascript">
+          var input = document.querySelector('#B_clear');
+          var textarea = document.querySelector('#myText');
+          var res = "";
 
+          function reset_form_element (x) {
+            x.wrap('<form>').parent('form').trigger('reset');
+            x.unwrap();
+
+          }
+          function re(x) {
+            document.getElementById('myText').value = "";
+            reset_form_element( $('#files') );
+            x.preventDefault();
+          }
+        </script>
+        <!--====================================-->
         <!-- Codigos de ejemplo al pulsar boton -->
         <script>
-      function  dump(fileName) {
-          $.ajax({
-            url : fileName,
-            dataType: "text",
-            success : function (data) {
+          function  dump(fileName) {
+            $.ajax({
+              url : fileName,
+              dataType: "text",
+              success : function (data) {
                 $("#myText").val(data);
-            }
-        });
-      }
-    </script> 
-    <div style="display:inline">
-      <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
-      <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
-      <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
-    </div>   
+              }
+            });
+          }
+        </script> 
+        <div style="display:inline">
+          <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
+          <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
+          <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
+        </div>   
   
-      <div class="enlaces">
+        <div class="enlaces">
           <div class="enlace_tests">
             <p><b>
               <a href="tests/index.html"><button type="button" class="btn btn-primary"><strong>Tests</strong></button></a>
@@ -144,7 +166,7 @@
               <a href="https://github.com/alu0100764666/PL_practica2/tree/master"><button type="button" class="btn btn-primary">Ver en <strong>GitHub</strong></button></a>
             </b></p>
           </div>
-      </div>
+        </div>
       </div>
     </div>
   </body>
