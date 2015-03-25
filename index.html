@@ -93,8 +93,11 @@
         <!--========================================-->
 
         <!--Boton para elegir archivo y subirlo*/-->
-        <p> <input type="file" id="files"/> </p>
+        <div class="boton_subir">
+          <p> <input type="file" id="files"/> </p>
+        </div>
         <textarea readonly id="myText" autofocus cols="40" rows="10" ></textarea>
+        
         <script type="text/javascript">
           document.getElementById('files').addEventListener('change', CopyMe, false);
           function CopyMe(evt) {
@@ -111,7 +114,9 @@
         </script>
         <!--==================================-->
         <!--Funcion y boton para limpiar la textarea-->
-        <button id="B_clear" type="button" onclick="re()" value="Clear"><b></b>reset</button>
+        <div class="boton_reset">
+          <button id="B_clear" type="button" onclick="re()" value="Clear"><b></b>reset</button>
+        </div>
         <script type="text/javascript">
           var input = document.querySelector('#B_clear');
           var textarea = document.querySelector('#myText');
@@ -141,7 +146,7 @@
             });
           }
         </script> 
-        <div style="display:inline">
+        <div class="botones_ejemplo" style="display:inline">
           <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
           <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
           <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
