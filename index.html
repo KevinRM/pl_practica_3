@@ -1,24 +1,13 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="estilo.css" type="text/css">
+    <link rel="stylesheet" href="public/estilo.css" type="text/css">
     <title>Analizador Léxico</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    
-    <script type="text/html" id='usageList'>
-      <ul>
-        <% _.each(files, function(f) { %>
-          <li>
-              <strong><%- f.name %></strong> 
-              (<%= f.type || 'n/a' %>) 
-              - <%= f.size %> bytes,
-              last modified: 
-                <%= f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a' %>
-          </li>
-          <% }); %>
-      </ul>
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
+    <script type="text/javascript" src="public/files.js"></script>  
+      <script type="text/javascript" src="public/tokens.js"></script>  
     <style type="text/css">
       a{text-decoration:none;}
       a:link{color:white;}
@@ -45,53 +34,14 @@
             Arrastre el archivo a analizar a la zona "Drop files" o seleccione el archivo a través del botón de la derecha. Para ver códigos de ejemplo, pulse en los botones de abajo.
           </fieldset>
         </div>
+
+          <!--Dropzone-->
         <div id="drop_zone">
           <b>
             <i><p>------ Drop files here ------</p></i>
           </b>
         </div>
-        <output id="list"></output>
-
-        <!--Dropzone-->
-        <script>
-        /* La funcion CopyMe intenta poner el contenido del fichero en la text area*/
-          function CopyMe(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-            var files = evt.dataTransfer.files;
-            if (files) {
-              var reader = new FileReader();
-              reader.onload = function(e) { 
-                myText.innerHTML = e.dataTransfer.files;
-              }
-              var c = reader.readAsText(files);
-            }
-            else { alert("Failed to load file"); }
-            evt.target.style.background = "black";
-          }
-          function handleFileSelect(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-            var files = evt.dataTransfer.files; // FileList object.
-            /*document.getElementById('myText').innerHTML = files;*/
-            // files is a FileList of File objects. List some properties.
-            var template = _.template(usageList.innerHTML);
-            document.getElementById('myText').innerHTML = template({ files : files});
-            evt.target.style.background = "black";
-          }
-          function handleDragOver(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-            evt.target.style.background = "green";
-          }
-          // Setup the drag and drop listeners.
-          var dropZone = document.getElementById('drop_zone');
-          dropZone.addEventListener('dragover', handleDragOver, false);
-          dropZone.addEventListener('drop', handleFileSelect, false);
-          /*dropZone.addEventListener('drop', CopyMe, false);*/
-        </script>
-        <!--========================================-->
-
+        
         <!--Boton para elegir archivo y subirlo*/-->
         <div class="boton_subir">
           <p> <input type="file" id="files"/> </p>
@@ -99,41 +49,13 @@
         <div class="text_area">
           <textarea readonly id="myText" autofocus cols="40" rows="10" ></textarea>
         </div>
-        <script type="text/javascript">
-          document.getElementById('files').addEventListener('change', CopyMe, false);
-          function CopyMe(evt) {
-            var file = evt.target.files[0];
-            if (file) {
-              var reader = new FileReader();
-              reader.onload = function(e) { 
-                myText.innerHTML = e.target.result;
-              }
-              var c = reader.readAsText(file);
-            }
-            else { alert("Failed to load file"); }
-          }
-        </script>
+        
         <!--==================================-->
         <!--Funcion y boton para limpiar la textarea-->
         <div class="boton_reset">
           <button id="B_clear" type="button" onclick="re()" value="Clear"><b>Reset</b></button>
         </div>
-        <script type="text/javascript">
-          var input = document.querySelector('#B_clear');
-          var textarea = document.querySelector('#myText');
-          var res = "";
-
-          function reset_form_element (x) {
-            x.wrap('<form>').parent('form').trigger('reset');
-            x.unwrap();
-
-          }
-          function re(x) {
-            document.getElementById('myText').innerHTML = "";
-            reset_form_element( $('#files') );
-            x.preventDefault();
-          }
-        </script>
+      
         <!--====================================-->
         <!-- Codigos de ejemplo al pulsar boton -->
         <script>
@@ -153,7 +75,11 @@
             <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
             <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
           </fieldset>
-        </div> 
+        </div>  
+        <div class="parse">
+            <br />
+            <button id="parse" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Parse</button>
+        </div>
         <div class="enlaces">
           <div class="enlace_tests">
             <p><b>
@@ -176,6 +102,7 @@
             </b></p>
           </div>
         </div>
+        <pre id="output" ></pre>
       </div>
     </div>
   </body>

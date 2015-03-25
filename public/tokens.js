@@ -94,3 +94,7 @@ String.prototype.tokens = function () {
     }
     return result;
 };
+
+exports.tokenizar = function (text) {
+    return text.tokens();
+};
