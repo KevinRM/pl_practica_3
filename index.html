@@ -82,7 +82,7 @@
           var dropZone = document.getElementById('drop_zone');
           dropZone.addEventListener('dragover', handleDragOver, false);
           dropZone.addEventListener('drop', handleFileSelect, false);
-          dropZone.addEventListener('drop', CopyMe, false);
+          dropZone.addEventListener('chage', CopyMe, false);
         </script>
         <!--========================================-->
 
@@ -90,7 +90,7 @@
         <p> <input type="file" id="files"/> </p>
         <textarea id="myText" autofocus cols="40" rows="10" ></textarea>
         <script type="text/javascript">
-          document.getElementById('files').addEventListener('drop', CopyMe, false);
+          document.getElementById('files').addEventListener('change', CopyMe, false);
           function CopyMe(evt) {
             var file = evt.target.files[0];
             if (file) {
@@ -112,23 +112,17 @@
             url : fileName,
             dataType: "text",
             success : function (data) {
-                $("#original").val(data);
+                $("#myText").val(data);
             }
         });
       }
     </script> 
-        <div id="header" class="header">
-          <h1 >How to load a file into a texarea</h1>
-          <div style="width:70%;margin:auto;">  
-            <textarea autofocus cols = "80" rows = "5" id="original"></textarea>
-          </div>
-          <br />
-          <div style="display:inline">
-            <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
-            <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
-            <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
-        </div>   
-      </div>
+    <div style="display:inline">
+      <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
+      <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
+      <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
+    </div>   
+  
       <div class="enlaces">
           <div class="enlace_tests">
             <p><b>
