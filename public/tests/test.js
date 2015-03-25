@@ -1,14 +1,15 @@
 var assert = chai.assert;
-//var converted;
+//var myText;
 //var original;
 
 suite('lexical analysis', function() {
 	if (typeof __html__ !== 'undefined') {
-              document.body.innerHTML = __html__['tests/karmatest.html'];
+              document.body.innerHTML = __html__['public/tests/karmatest.html'];
               myText = document.getElementById('myText');
 	          output = document.getElementById('output');
 
-          }   
+          }
+         
 	test('2 == 4;', function() {
 	    myText.value = '2 == 4;';
 		$("#parse").trigger("click")
