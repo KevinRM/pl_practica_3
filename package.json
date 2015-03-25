@@ -4,7 +4,7 @@
   "description": "Parser de un subconjunto de JavaScript",
   "main": "app.js",
   "scripts": {
-    "test": "firefox public/tests/index.html"
+    "test": "node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",

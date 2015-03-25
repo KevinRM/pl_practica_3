@@ -1,1 +1,3 @@
-adios
+var f = function(a) {
+	return a;
+}
