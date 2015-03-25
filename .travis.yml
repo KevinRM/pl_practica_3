@@ -12,7 +12,7 @@ before_script:
   
   - sleep 3
 
-  - node app.js
+  - node app.js &
   
   - sleep 1 
 branches:
