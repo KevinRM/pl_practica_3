@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css" type="text/css">
+    <title>Analizador Léxico</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    
+    <script type="text/html" id='usageList'>
+      <ul>
+        <% _.each(files, function(f) { %>
+          <li>
+              <strong><%- f.name %></strong> 
+              (<%= f.type || 'n/a' %>) 
+              - <%= f.size %> bytes,
+              last modified: 
+                <%= f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a' %>
+          </li>
+          <% }); %>
+      </ul>
+    </script>
+    <style type="text/css">
+      a{text-decoration:none;}
+      a:link{color:white;}
+      a:visited{color:white;}
+      a:hover{font-size:16; color:#0B0B61;}
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <dl>
+        <dt><b><a href="https://kevinrm.github.io/index.html">Inicio: Página Kevin</a></b></dt>
+        <dt><b><a href="/index.html">Inicio: Página Sabato</a></b></dt>
+      </dl>
+    </div>
+    <div class="contenido_total">
+      <div class="titulo_practica">
+        <h1 align=center><font color="white">Analizador Léxico para Un Subconjunto de JavaScript</font></h1>
+        <hr>
+      </div>
+      <div class="contenido">
+        <div class="descripcion">
+          <fieldset>
+            <legend><b><i>Ayuda</i></b></legend>
+            Arrastre el archivo a analizar a la zona "Drop files" o seleccione el archivo a través del botón de la derecha. Para ver códigos de ejemplo, pulse en los botones de abajo.
+          </fieldset>
+        </div>
+        <div id="drop_zone"><b><i>------ Drop files here ------</i></b></div>
+        <output id="list"></output>
+
+        <!--Dropzone-->
+        <script>
+        /* La funcion CopyMe intenta poner el contenido del fichero en la text area*/
+          function CopyMe(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            var files = evt.dataTransfer.files;
+            if (files) {
+              var reader = new FileReader();
+              reader.onload = function(e) { 
+                myText.innerHTML = e.dataTransfer.result;
+              }
+              var c = reader.readAsText(files);
+            }
+            else { alert("Failed to load file"); }
+          }
+          function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            var files = evt.dataTransfer.files; // FileList object.
+            // files is a FileList of File objects. List some properties.
+            var template = _.template(usageList.innerHTML);
+            document.getElementById('myText').innerHTML = template({ files : files});
+            evt.target.style.background = "black";
+          }
+          function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.target.style.background = "green";
+          }
+          // Setup the drag and drop listeners.
+          var dropZone = document.getElementById('drop_zone');
+          dropZone.addEventListener('dragover', handleDragOver, false);
+          dropZone.addEventListener('drop', handleFileSelect, false);
+          dropZone.addEventListener('drop', CopyMe, false);
+        </script>
+        <!--========================================-->
+
+        <!--Boton para elegir archivo y subirlo*/-->
+        <p> <input type="file" id="files"/> </p>
+        <textarea id="myText" autofocus cols="40" rows="10" ></textarea>
+        <script type="text/javascript">
+          document.getElementById('files').addEventListener('drop', CopyMe, false);
+          function CopyMe(evt) {
+            var file = evt.target.files[0];
+            if (file) {
+              var reader = new FileReader();
+              reader.onload = function(e) { 
+                myText.innerHTML = e.target.result;
+              }
+              var c = reader.readAsText(file);
+            }
+            else { alert("Failed to load file"); }
+          }
+        </script>
+        <!--==================================-->
+
+        <!-- Codigos de ejemplo al pulsar boton -->
+        <script>
+      function  dump(fileName) {
+          $.ajax({
+            url : fileName,
+            dataType: "text",
+            success : function (data) {
+                $("#original").val(data);
+            }
+        });
+      }
+    </script> 
+        <div id="header" class="header">
+          <h1 >How to load a file into a texarea</h1>
+          <div style="width:70%;margin:auto;">  
+            <textarea autofocus cols = "80" rows = "5" id="original"></textarea>
+          </div>
+          <br />
+          <div style="display:inline">
+            <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
+            <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
+            <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
+        </div>   
+      </div>
+      <div class="enlaces">
+          <div class="enlace_tests">
+            <p><b>
+              <a href="tests/index.html"><button type="button" class="btn btn-primary"><strong>Tests</strong></button></a>
+            </b></p>
+          </div>
+          <div class="enlace_travis">
+            <p><b>
+              <a href="https://travis-ci.org/alu0100764666/PL_practica2"><button type="button" class="btn btn-primary"><strong>Travis</strong></button></a>
+            </b></p>
+          </div>
+          <div class="enlace_jquery">
+            <p><b>
+              <a href="http://jquery.com/"><button type="button" class="btn btn-primary"><strong>jQuery</strong></button></a>
+            </b></p>
+          </div>
+          <div class="enlace_github">
+            <p><b>
+              <a href="https://github.com/alu0100764666/PL_practica2/tree/master"><button type="button" class="btn btn-primary">Ver en <strong>GitHub</strong></button></a>
+            </b></p>
+          </div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
