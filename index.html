@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="estilo.css" type="text/css">
+    <link rel="stylesheet" href="public/estilo.css" type="text/css">
     <title>Analizador Léxico</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
-    <script type="text/javascript" src="files.js"></script>  
+    <script type="text/javascript" src="public/files.js"></script>  
   
     <style type="text/css">
       a{text-decoration:none;}
@@ -41,7 +41,7 @@
             ------ Drop files here ------
           
         </div>
-        <output id="list"></output>
+        
         <!--Boton para elegir archivo y subirlo*/-->
         <div class="boton_subir">
           <p> <input type="file" id="files"/> </p>
@@ -97,6 +97,7 @@
             </b></p>
           </div>
         </div>
+        <pre id="output" ></pre>
       </div>
     </div>
   </body>

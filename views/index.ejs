@@ -1,0 +1,126 @@
+﻿<div class="menu">
+  <dl>
+    <dt>
+      <b>
+        <a href="https://kevinrm.github.io/index.html">Inicio: Página Kevin</a>
+      </b>
+    </dt>
+    <dt>
+      <b>
+        <a href="/index.html">Inicio: Página Sabato</a>
+      </b>
+    </dt>
+  </dl>
+</div>
+<div class="contenido_total">
+  <div class="titulo_practica">
+    <h1 align="center">
+      <font color="white">Analizador Léxico para Un Subconjunto de JavaScript</font>
+    </h1>
+    <hr>
+      </div>
+  <div class="contenido">
+    <div class="descripcion">
+      <fieldset>
+        <legend>
+          <b>
+            <i>Ayuda</i>
+          </b>
+        </legend>
+        Arrastre el archivo a analizar a la zona "Drop files" o seleccione el archivo a través del botón de la derecha. Para ver códigos de ejemplo, pulse en los botones de abajo.
+      </fieldset>
+    </div>
+
+    <!--Dropzone-->
+    <div id="drop_zone">
+
+      ------ Drop files here ------
+
+    </div>
+
+    <!--Boton para elegir archivo y subirlo*/-->
+    <div class="boton_subir">
+      <p>
+        <input type="file" id="files"/>
+      </p>
+    </div>
+    <div class="text_area">
+      <textarea readonly="" id="myText" autofocus="" cols="40" rows="10" ></textarea>
+    </div>
+
+    <!--==================================-->
+    <!--Funcion y boton para limpiar la textarea-->
+    <div class="boton_reset">
+      <button id="B_clear" type="button" onclick="re()" value="Clear">
+        <b>Reset</b>
+      </button>
+    </div>
+
+    <!--====================================-->
+    <!-- Codigos de ejemplo al pulsar boton -->
+    <script>
+      function  dump(fileName) {
+      $.ajax({
+      url : fileName,
+      dataType: "text",
+      success : function (data) {
+      $("#myText").val(data);
+      }
+      });
+      }
+    </script>
+    <div class="botones_ejemplo" style="display:inline">
+      <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
+      <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
+      <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
+    </div>
+
+    <div class="enlaces">
+      <div class="enlace_tests">
+        <p>
+          <b>
+            <a href="tests/index.html">
+              <button type="button" class="btn btn-primary">
+                <strong>Tests</strong>
+              </button>
+            </a>
+          </b>
+        </p>
+      </div>
+      <div class="enlace_travis">
+        <p>
+          <b>
+            <a href="">
+              <button type="button" class="btn btn-primary">
+                <strong>Travis</strong>
+              </button>
+            </a>
+          </b>
+        </p>
+      </div>
+      <div class="enlace_jquery">
+        <p>
+          <b>
+            <a href="http://jquery.com/">
+              <button type="button" class="btn btn-primary">
+                <strong>jQuery</strong>
+              </button>
+            </a>
+          </b>
+        </p>
+      </div>
+      <div class="enlace_github">
+        <p>
+          <b>
+            <a href="https://github.com/kevinrm/pl_practica_3/">
+              <button type="button" class="btn btn-primary">
+                Ver en <strong>GitHub</strong>
+              </button>
+            </a>
+          </b>
+        </p>
+      </div>
+    </div>
+    <pre id="output" ></pre>
+  </div>
+</div>

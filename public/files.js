@@ -7,11 +7,7 @@ $(document).ready(function () {
     document.getElementById('drop_zone').addEventListener('drop', handleFileSelect, false);
     document.getElementById('files').addEventListener('change', CopyMe, false);
 });
-/*
-var input = document.querySelector('#B_clear');
-var textarea = document.querySelector('#myText');
-var res = "";
-*/
+
 function reset_form_element(x) {
     x.wrap('<form>').parent('form').trigger('reset');
     x.unwrap();

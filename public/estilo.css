@@ -10,7 +10,10 @@ body{
   background-repeat:repeat;
 
   }
-
+#output  {
+    background-color: white; 
+    width: 60%;
+}
 .menu dl{
   float:left;
   margin-top:40px;
