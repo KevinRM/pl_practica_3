@@ -39,38 +39,68 @@ body{
 }
 .enlaces{
   margin-top: 30px;
-  float:right;
+  text-align: center;
+  display: inline-block;
 }
 .enlace_tests{
   display: inline-block;
 }
-.enlace_travis{
-  display: inline-block;
-}
+
 .enlace_github{
   display:inline-block;
+}
+.enlace_travis{
+  display: inline-block;
 }
 .enlace_jquery{
   display:inline-block;
 }
+
 .descripcion fieldset{
   border-color:black;
   color:white;
+  font-size:17px;
 }
 #drop_zone{
   width:40%;
+  height:80px;
   padding:10px;
   background-color:#2E2E2E;
   color: white;
   margin-top:50px;
   text-align:center;
   border-style:outset;
+  border-radius:15px;
   display:inline-block;
+}
+#drop_zone p{
+  margin-top: 30px;
 }
 .boton_subir{
   display:inline-block;
   margin-left:20px;
 }
+.text_area{
+  margin-top:50px;
+  text-align:center;
+}
 #myText{
   width: 70%;
+}
+.boton_reset{
+  margin-top: 30px;
+  display: inline-block;
+}
+.botones_ejemplo{
+  margin-left:60px;
+}
+.botones_ejemplo fieldset{
+  width:234px;
+  padding: 15px;
+  margin-top: 30px;
+  border-style:inset;
+  background-color: #243B0B;
+  border-width:5px;
+  border-color: #000000;
+  display: inline-block;
 }
