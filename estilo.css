@@ -67,3 +67,10 @@ body{
   border-style:outset;
   display:inline-block;
 }
+.boton_subir{
+  display:inline-block;
+  margin-left:20px;
+}
+#myText{
+  width: 70%;
+}

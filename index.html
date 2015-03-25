@@ -96,8 +96,9 @@
         <div class="boton_subir">
           <p> <input type="file" id="files"/> </p>
         </div>
-        <textarea readonly id="myText" autofocus cols="40" rows="10" ></textarea>
-        
+        <div class="text_area">
+          <textarea readonly id="myText" autofocus cols="40" rows="10" ></textarea>
+        </div>
         <script type="text/javascript">
           document.getElementById('files').addEventListener('change', CopyMe, false);
           function CopyMe(evt) {
