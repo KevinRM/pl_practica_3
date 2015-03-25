@@ -7,7 +7,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
     <script type="text/javascript" src="public/files.js"></script>  
-      <script type="text/javascript" src="public/tokens.js"></script>  
+    <script type="text/javascript" src="public/tokens.js"></script>  
+    <script type="text/javascript" src="public/parseButton.js"></script>  
+
     <style type="text/css">
       a{text-decoration:none;}
       a:link{color:white;}
@@ -71,20 +73,20 @@
         </script> 
         <div class="botones_ejemplo" style="display:inline">
           <fieldset>
-            <button id ="Ejemplo_1" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Ejemplo 1</button>
-            <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
-            <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
+            <button id ="Ejemplo_1" type="button" onclick="dump('public/ejemplos/ejemplo1.txt');">Ejemplo 1</button>
+            <button id ="Ejemplo_2" type="button" onclick="dump('public/ejemplos/ejemplo2.txt');">Ejemplo 2</button>
+            <button id ="Ejemplo_3" type="button" onclick="dump('public/ejemplos/ejemplo3.txt');">Ejemplo 3</button>
           </fieldset>
         </div>  
         <div class="parse">
             <br />
-            <button id="parse" type="button" onclick="dump('ejemplos/ejemplo1.txt');">Parse</button>
+            <button id="parse" type="button" >Parse</button>
         </div>
 
         <div class="enlaces">
           <div class="enlace_tests">
             <p><b>
-              <a href="tests/index.html"><button type="button" class="btn btn-primary"><strong>Tests</strong></button></a>
+              <a href="public/tests/index.html"><button type="button" class="btn btn-primary"><strong>Tests</strong></button></a>
             </b></p>
           </div>
           <div class="enlace_travis">

@@ -95,6 +95,6 @@ String.prototype.tokens = function () {
     return result;
 };
 
-exports.tokenizar = function (text) {
+function tokenizar (text) {
     return text.tokens();
 };
