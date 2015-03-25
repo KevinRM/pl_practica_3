@@ -1,0 +1,79 @@
+body{
+
+  margin-left:10%;
+  margin-right:10%;
+  margin-top:30px;
+  margin-bottom:20px;
+
+  background-image:url(imagenes/fondo-de-madera-2831.jpg);
+  background-attachment:fixed;
+  background-repeat:repeat;
+
+  }
+#output  {
+    background-color: white; 
+    width: 60%;
+}
+.menu dl{
+  float:left;
+  margin-top:40px;
+
+  width:160px;
+  height:auto;
+  padding:5px;
+  overflow:auto;
+  line-height:20px;
+
+  border-color:black;
+  border-style:solid;
+  background:#424242;
+
+
+  font-family:Airal;
+  font-size:14px;
+  font-weight:bold;
+
+}
+.contenido_total{
+  margin-left:200px;
+}
+.contenido{
+  margin-top:20px;
+}
+.enlaces{
+  margin-top: 30px;
+  float:right;
+}
+.enlace_tests{
+  display: inline-block;
+}
+.enlace_travis{
+  display: inline-block;
+}
+.enlace_github{
+  display:inline-block;
+}
+.enlace_jquery{
+  display:inline-block;
+}
+.descripcion fieldset{
+  border-color:black;
+  color:white;
+}
+#drop_zone{
+  width:40%;
+  padding:10px;
+  background-color:#2E2E2E;
+  color: white;
+  margin-top:50px;
+  text-align:center;
+  border-style:outset;
+  display:inline-block;
+}
+.boton_subir{
+  display:inline-block;
+  margin-left:20px;
+}
+#myText{
+  width: 70%;
+}
