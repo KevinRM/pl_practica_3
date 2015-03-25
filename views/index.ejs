@@ -64,7 +64,7 @@
       url : fileName,
       dataType: "text",
       success : function (data) {
-      $("#myText").val(data);
+      $("#myText").html(data);
       }
       });
       }
@@ -74,7 +74,10 @@
       <button id ="Ejemplo_2" type="button" onclick="dump('ejemplos/ejemplo2.txt');">Ejemplo 2</button>
       <button id ="Ejemplo_3" type="button" onclick="dump('ejemplos/ejemplo3.txt');">Ejemplo 3</button>
     </div>
-
+    <div class="parse">
+      <br />
+      <button id="parse" type="button">Parse</button>
+    </div>
     <div class="enlaces">
       <div class="enlace_tests">
         <p>

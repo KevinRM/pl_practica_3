@@ -16,7 +16,7 @@ function reset_form_element(x) {
 function re(x) {
     document.getElementById('myText').innerHTML = "";
     reset_form_element($('#files'));
-    x.preventDefault();
+    document.getElementById("output").innerHTML = "";
 }
 function handleMouseOut(evt) {
     evt.stopPropagation();
