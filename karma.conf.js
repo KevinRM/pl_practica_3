@@ -24,24 +24,22 @@ module.exports = function(config) {
         'htpp://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js',
         'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js',
         'public/tests/karmatest.html',
-        'http://localhost:5000/tests/karmatest.html',
-        '*.js',
         'public/tests/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      'gulpfile.js'
+      'gulpfile.js',
+      'app.js'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'http://localhost:5000/tests/karmatest.html': ['html2js']
+        'public/tests/karmatest.html': ['html2js']
     },
 
     // test results reporter to use
@@ -74,6 +72,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };

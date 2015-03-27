@@ -4,7 +4,7 @@ var assert = chai.assert;
 
 suite('lexical analysis', function() {
 	if (typeof __html__ !== 'undefined') {
-              document.body.innerHTML = __html__['tests/karmatest.html'];
+              document.body.innerHTML = __html__['public/tests/karmatest.html'];
               myText = document.getElementById('myText');
 	          output = document.getElementById('output');
 
