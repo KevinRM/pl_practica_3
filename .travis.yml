@@ -11,8 +11,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   
   - sleep 3
-  
-  - sleep 1 
+
 branches:
 
   only:
