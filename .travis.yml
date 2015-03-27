@@ -19,4 +19,4 @@ branches:
 
   only:
 
-    - master
+    - gh-pages
